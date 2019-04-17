@@ -34,7 +34,7 @@ do
     send_data="prodCode=$prodCode&version=$version&channelId=$channelId"
     result=`post "$headers" "$UP_QOS_URL" "$send_data"`
     echo "status_code:${result: -3}"
-    echo -e "response:\n${result:0:-3}"
+    echo -e "response:\n${result:0:$#-3}"
     [ "${result: -3}" = "400" ] &&  hint="succeeded" || hint="failed"
     echo "Sending heart_beat package <$count> $hint"
     echo "*******************************************"
