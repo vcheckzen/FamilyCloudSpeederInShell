@@ -11,8 +11,8 @@ A Shell Implementation of FamilyCloudSpeeder, ESurfing, which can be used in alm
 Assuming you've installed git, then
 
 ```bash
-git clone https://github.com/vcheckzen/XunleiKuainiaoInShell.git
-cd XunleiKuainiaoInShell
+git clone https://github.com/vcheckzen/FamilyCloudSpeederInShell.git
+cd FamilyCloudSpeederInShell
 ```
 
 ### Get Your Specific Parameters
