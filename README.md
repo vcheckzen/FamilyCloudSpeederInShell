@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A shell implementation of FamilyCloudSpeeder, ESurfing, which means it runs properly on almost all linux platform.
+A shell implementation of FamilyCloudSpeeder, ESurfing, runs properly on almost all linux platform.
 
 ## How to Use
 
