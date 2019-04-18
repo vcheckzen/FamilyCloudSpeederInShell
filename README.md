@@ -26,6 +26,24 @@ chmod +x speedup.sh
 ./speedup.sh
 ```
 
+### Run in background
+
+Please note that `certail_directory` should be replaced.
+
+```bash
+nohup /certail_directory/FamilyCloudSpeederInShell/speedup.sh > /certail_directory/FamilyCloudSpeederInShell/speedup.log 2>&1 &
+```
+
+### Auto Run on System Boot
+
+You can add nohup command to `/etc/rc.local`, if the file exists in your system.
+
+```bash
+echo \
+"nohup /certail_directory/FamilyCloudSpeederInShell/speedup.sh > /certail_directory/FamilyCloudSpeederInShell/speedup.log 2>&1 &" \
+>> /etc/rc.local
+```
+
 # Appreciation
 
 - [familycloudaccelerate](https://github.com/aiyijing/familycloudaccelerate)
