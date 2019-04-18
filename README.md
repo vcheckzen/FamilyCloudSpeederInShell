@@ -22,7 +22,7 @@ Fill in the `config.json` file, following [this](https://github.com/aiyijing/fam
 ### Run `speedup.sh` to Test
 
 ```bash
-chmod +x speedup.sh
+chmod +x speedup.sh utils.sh
 ./speedup.sh
 ```
 
