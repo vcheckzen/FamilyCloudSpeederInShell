@@ -3,7 +3,7 @@
     "session_secret":"90873B0BPF7D51D2C0670D707C31B00B",
     "setting":{
         "method":"POST",
-        "rate":300
+        "rate":60
     },
     "send_data":{
           "prodCode": "76",
