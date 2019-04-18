@@ -26,7 +26,7 @@ chmod +x speedup.sh
 ./speedup.sh
 ```
 
-### Run in background
+### Run in Background
 
 Please note that `certail_directory` should be replaced.
 
