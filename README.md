@@ -22,11 +22,14 @@ Fill in the `config.json` file, following [this](https://github.com/aiyijing/fam
 ### Run `speedup.sh` to Test
 
 ```bash
-# requirements on OpenWrt, Padavan and other RouterOS
-opkg update && opkg install coreutils-nohup libopenssl openssl-util ca-certificates ca-bundle bash curl wget
+# requirements on OpenWrt, Padavan and other RouterOS base on entware or optware environment
+opkg update && opkg install coreutils-nohup libcurl libopenssl bash curl wget openssl-util ca-certificates ca-bundle
 
 chmod +x speedup.sh utils.sh
 ./speedup.sh
+
+# entware or optware environment must specific bash entware, cause the bash directory could be /opt/bin/bash, not /bin/bash
+bash speedup.sh
 ```
 
 ### Run in Background
