@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 base_dir=`dirname $0`
 source "$base_dir/utils.sh"

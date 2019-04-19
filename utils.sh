@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CONNECTION_TIME="15"
 TRANSMISSION_TIME="15"
