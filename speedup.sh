@@ -24,7 +24,7 @@ while :
 do
     count=$((count+1))
     echo "Sending heart_beat package <$count>"
-    date=`env LANG=en_US.UTF-8 date -u '+%a, %d %b %Y %T GMT'`
+    date=`env LANG=C.UTF-8 date -u '+%a, %d %b %Y %T GMT'`
     data="SessionKey=$session_key&Operate=$method&RequestURI=$ACCESS_URL&Date=$date"
     key="$session_secret"
     signature=`hashHmac "sha1" "$data" "$key"`
