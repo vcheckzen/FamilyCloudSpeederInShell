@@ -28,7 +28,7 @@ opkg update && opkg install coreutils-nohup libcurl libopenssl bash curl wget op
 chmod +x speedup.sh utils.sh
 ./speedup.sh
 
-# entware or optware environment must specific bash entware, cause the bash directory could be /opt/bin/bash, not /bin/bash
+# entware or optware environment must specific bash interpreter, cause the bash directory could be /opt/bin/bash, not /bin/bash
 bash speedup.sh
 ```
 
