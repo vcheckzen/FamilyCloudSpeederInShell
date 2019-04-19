@@ -23,7 +23,7 @@ Fill in the `config.json` file, following [this](https://github.com/aiyijing/fam
 
 ```bash
 # requirements on OpenWrt, Padavan and other RouterOS
-opkg update && opkg install curl wget openssl-util coreutils-nohup ca-certificates ca-bundle
+opkg update && opkg install bash curl wget openssl-util coreutils-nohup ca-certificates ca-bundle
 
 chmod +x speedup.sh utils.sh
 ./speedup.sh
