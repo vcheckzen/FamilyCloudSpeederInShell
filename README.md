@@ -27,9 +27,6 @@ opkg update && opkg install coreutils-nohup libreadline libcurl libopenssl bash 
 
 chmod +x speedup.sh utils.sh
 ./speedup.sh
-
-# you may need specify bash interpreter on entware or optware environment, cause the bash directory could be /opt/bin/bash, not /bin/bash
-bash speedup.sh
 ```
 
 ### Run in Background
