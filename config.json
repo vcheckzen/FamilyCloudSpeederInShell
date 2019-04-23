@@ -1,16 +1,18 @@
 {
-    "session_key":"47fsb5f1-0a83-4c8f-p06e-e6c7b03ec536_family",
-    "session_secret":"90873B0BPF7D51D2C0670D707C31B00B",
-    "setting":{
-        "method":"POST",
-        "rate":45
+    "e189AccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "AppKey": "000000000",
+    "AppSignature": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "Timestamp": "0000000000",
+    "setting": {
+        "method": "POST",
+        "rate": 600
     },
-    "send_data":{
-          "prodCode": "76",
-          "version": "2.0.10",
-          "channelId": "qq"
+    "send_data": {
+        "prodCode": "76",
+        "version": "2.0.10",
+        "channelId": "qq"
     },
-    "extra_header":{
+    "extra_header": {
         "User-Agent": "Apache-HttpClient/UNAVAILABLE (java 1.4)"
     }
 }
