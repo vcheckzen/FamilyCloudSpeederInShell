@@ -19,12 +19,20 @@ cd FamilyCloudSpeederInShell
 
 Fill in the `config.json` file, following [this](https://github.com/aiyijing/familycloudaccelerate/wiki/%E5%AE%B6%E5%BA%AD%E4%BA%91%E6%89%8B%E6%9C%BA%E7%AB%AF%E6%8A%93%E5%8C%85%E6%96%B9%E6%B3%95) and [this guide](https://github.com/aiyijing/familycloudaccelerate/issues/5).
 
+### Install Requirements and Test Environment
+
+```bash
+# Requirements on OpenWRT, Padavan and other RouterOS based on entware or optware environment
+opkg update && opkg install coreutils-nohup libreadline libcurl libopenssl bash curl wget openssl-util ca-certificates ca-bundle
+
+# Test https and grep, a normal output is like "ip":"121.226.150.154"
+curl -s https://ipconfig.io/json | grep -Eo "\"ip\":\"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\""
+wget -qO- https://ipconfig.io/json | grep -Eo "\"ip\":\"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\""
+```
+
 ### Run `speedup.sh` to Test
 
 ```bash
-# requirements on OpenWrt, Padavan and other RouterOS based on entware or optware environment
-opkg update && opkg install coreutils-nohup libreadline libcurl libopenssl bash curl wget openssl-util ca-certificates ca-bundle
-
 chmod +x speedup.sh utils.sh
 ./speedup.sh
 ```
