@@ -5,7 +5,7 @@
     "Timestamp": "0000000000",
     "setting": {
         "method": "POST",
-        "rate": 600
+        "rate": 60
     },
     "send_data": {
         "prodCode": "76",
