@@ -41,7 +41,10 @@ do
     headers_string="SessionKey:$session_key"$split"Signature:$signature"$split"Date:$date"$split"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
     send_data="prodCode=$prodCode&version=$version&channelId=$channelId"
-    result=`post "$headers" "$HOST$ACCESS_URL" "$send_data"`
+    for i in {1..3}
+    do
+        result=`post "$headers" "$HOST$ACCESS_URL" "$send_data"`
+    done
     echo "heart_beat:<signature:$signature>"
     echo "date:<$date>"
     echo "status_code:${result: -3}"
