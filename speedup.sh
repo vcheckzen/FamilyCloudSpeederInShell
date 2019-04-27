@@ -33,7 +33,7 @@ do
     login_result="`get \"$HOST$LOGIN_URL?e189AccessToken=$e189AccessToken\" \"$headers\"`"
     session_key=`echo "$login_result" | grep -Eo "sessionKey>.*family" | sed 's/sessionKey>//'`
     session_secret=`echo "$login_result" | grep -Eo "sessionSecret>.*</sessionSecret" | sed 's/sessionSecret>//' | sed 's/<\/sessionSecret//'`
-    date=`date -u '+%a, %d %b %Y %T GMT'`
+    date=`env LANG=C.UTF-8 date -u '+%a, %d %b %Y %T GMT'`
     data="SessionKey=$session_key&Operate=$method&RequestURI=$ACCESS_URL&Date=$date"
     key="$session_secret"
     signature=`hashHmac "sha1" "$data" "$key"`
