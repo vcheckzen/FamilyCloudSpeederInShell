@@ -26,7 +26,7 @@ post() {
     HEADER="$1"
     URL="$2"
     PAYLOAD="$3"
-    eval curl -s --connect-timeout "${CONNECTION_TIME}" -m "${TRANSMISSION_TIME}" -X POST "${URL}" "${HEADER}" -w %http_code -d "'$PAYLOAD'"
+    eval curl -s --connect-timeout "${CONNECTION_TIME}" -m "${TRANSMISSION_TIME}" -X POST "${URL}" "${HEADER}" -w "%{http_code}" -d "'$PAYLOAD'"
 }
 
 getSingleJsonValue() {
