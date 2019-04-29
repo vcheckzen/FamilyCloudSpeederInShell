@@ -1,16 +1,9 @@
 {
-  "e189AccessToken": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  "AppKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  "AppSignature": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  "Timestamp": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "accessToken": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "AppKey": "600100885",
   "setting": {
     "method": "POST",
-    "rate": 600
-  },
-  "send_data": {
-    "prodCode": "76",
-    "version": "2.0.10",
-    "channelId": "qq"
+    "rate": 60
   },
   "extra_header": {
     "User-Agent": "Apache-HttpClient/UNAVAILABLE (java 1.4)"
