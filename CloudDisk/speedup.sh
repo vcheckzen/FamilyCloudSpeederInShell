@@ -33,7 +33,7 @@ do
     key="$session_secret"
     signature=`hashHmac "sha1" "$data" "$key"`
     split="~"
-    headers_string="SessionKey:$session_key"$split"Signature:$signature"$split"Date:$date"$split"$extra_header"
+    headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"Date:$date"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
     for i in {1..3}
     do
@@ -42,8 +42,8 @@ do
     echo "heart_beat:<signature:$signature>"
     echo "date:<$date>"
     echo -e "response:\n$result"
-    [ "`echo $result | grep dialAccount`" != "" ] &&  hint="succeeded" || hint="failed"
+    [[ "`echo ${result} | grep dialAccount`" != "" ]] &&  hint="succeeded" || hint="failed"
     echo "Sending heart_beat package <$count> $hint"
     echo "*******************************************"
-    sleep $rate
+    sleep ${rate}
 done

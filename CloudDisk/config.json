@@ -1,11 +1,11 @@
 {
-    "accessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "qosClientSn": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "setting": {
-        "method": "GET",
-        "rate": 60
-    },
-    "extra_header": {
-        "User-Agent": "Apache-HttpClient/UNAVAILABLE (java 1.4)"
-    }
+  "accessToken": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "qosClientSn": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "setting": {
+    "method": "GET",
+    "rate": 600
+  },
+  "extra_header": {
+    "User-Agent": "Apache-HttpClient/UNAVAILABLE (java 1.4)"
+  }
 }
