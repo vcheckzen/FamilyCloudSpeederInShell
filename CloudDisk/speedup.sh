@@ -10,7 +10,6 @@ method=`getSingleJsonValue "$config" "method"`
 rate=`getSingleJsonValue "$config" "rate"`
 UA=`getSingleJsonValue "$config" "User-Agent"`
 extra_header="User-Agent:$UA"
-qosClientSn=`cat /proc/sys/kernel/random/uuid`
 
 
 HOST="http://api.cloud.189.cn"
@@ -37,6 +36,7 @@ do
     headers=`formatHeaderString "$split" "$headers_string"`
     for i in 1 2 3
     do
+        qosClientSn=`cat /proc/sys/kernel/random/uuid`
         result=`get "$HOST$ACCESS_URL?qosClientSn=$qosClientSn" "$headers"`
     done
     echo "heart_beat:<signature:$signature>"
