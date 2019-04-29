@@ -5,21 +5,16 @@ source "$base_dir/utils.sh"
 config="$base_dir/config.json"
 
 
-e189AccessToken=`getSingleJsonValue "$config" "e189AccessToken"`
+accessToken=`getSingleJsonValue "$config" "accessToken"`
 AppKey=`getSingleJsonValue "$config" "AppKey"`
-AppSignature=`getSingleJsonValue "$config" "AppSignature"`
-Timestamp=`getSingleJsonValue "$config" "Timestamp"`
 method=`getSingleJsonValue "$config" "method"`
 rate=`getSingleJsonValue "$config" "rate"`
 UA=`getSingleJsonValue "$config" "User-Agent"`
-prodCode=`getSingleJsonValue "$config" "prodCode"`
-version=`getSingleJsonValue "$config" "version"`
-channelId=`getSingleJsonValue "$config" "channelId"`
 extra_header="User-Agent:$UA"
 
 
 HOST="http://api.cloud.189.cn"
-LOGIN_URL="/family/manage/loginFamily.action"
+LOGIN_URL="/login4MergedClient.action"
 ACCESS_URL="/family/qos/startQos.action"
 count=0
 echo "*******************************************"
@@ -28,11 +23,11 @@ do
     count=$((count+1))
     echo "Sending heart_beat package <$count>"
     split="~"
-    headers_string="AppKey:$AppKey"${split}"AppSignature:$AppSignature"${split}"Timestamp:$Timestamp"${split}"$extra_header"
+    headers_string="AppKey:$AppKey"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
-    login_result="`get \"$HOST$LOGIN_URL?e189AccessToken=$e189AccessToken\" \"$headers\"`"
-    session_key=`echo "$login_result" | grep -Eo "sessionKey>.*family" | sed 's/sessionKey>//'`
-    session_secret=`echo "$login_result" | grep -Eo "sessionSecret>.*</sessionSecret" | sed 's/sessionSecret>//' | sed 's/<\/sessionSecret//'`
+    login_result=`post "$headers" "$HOST$LOGIN_URL?accessToken=$accessToken"`
+    session_key=`echo "$login_result" | grep -Eo "familySessionKey>.+</familySessionKey" | sed 's/familySessionKey>//' | sed 's/<\/familySessionKey//'`
+    session_secret=`echo "$login_result" | grep -Eo "familySessionSecret>.+</familySessionSecret" | sed 's/familySessionSecret>//' | sed 's/<\/familySessionSecret//'`
     date=`env LANG=C.UTF-8 date -u '+%a, %d %b %Y %T GMT'`
     data="SessionKey=$session_key&Operate=$method&RequestURI=$ACCESS_URL&Date=$date"
     key="$session_secret"
@@ -40,10 +35,9 @@ do
     split="~"
     headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"Date:$date"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
-    send_data="prodCode=$prodCode&version=$version&channelId=$channelId"
     for i in 1 2 3
     do
-        result=`post "$headers" "$HOST$ACCESS_URL" "$send_data"`
+        result=`post "$headers" "$HOST$ACCESS_URL"`
     done
     echo "heart_beat:<signature:$signature>"
     echo "date:<$date>"
