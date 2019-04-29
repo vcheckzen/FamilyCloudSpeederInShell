@@ -34,9 +34,9 @@ do
     split="~"
     headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"Date:$date"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
+    qosClientSn=`cat /proc/sys/kernel/random/uuid`
     for i in 1 2 3
     do
-        qosClientSn=`cat /proc/sys/kernel/random/uuid`
         result=`get "$HOST$ACCESS_URL?qosClientSn=$qosClientSn" "$headers"`
     done
     echo "heart_beat:<signature:$signature>"
