@@ -23,7 +23,8 @@ Fill in the `config.json` file, following [this](https://github.com/aiyijing/fam
 
 ```bash
 # Requirements on OpenWRT, Padavan and other RouterOS based on entware or optware environment
-opkg update && opkg install coreutils-nohup libreadline libcurl libopenssl bash curl wget openssl-util ca-certificates ca-bundle
+opkg update && \
+opkg install coreutils-nohup libreadline libcurl libopenssl bash curl wget openssl-util ca-certificates ca-bundle
 
 # Test https and grep, a normal output is like "ip":"121.226.150.154"
 curl -s https://ipconfig.io/json | grep -Eo "\"ip\":\"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\""
@@ -42,7 +43,7 @@ chmod +x speedup.sh utils.sh
 Please note that `certail_directory` should be replaced.
 
 ```bash
-nohup /certail_directory/FamilyCloudSpeederInShell/speedup.sh > /certail_directory/FamilyCloudSpeederInShell/speedup.log 2>&1 &
+nohup /certail_directory/speedup.sh > /certail_directory/speedup.log 2>&1 &
 ```
 
 ### Auto Run on System Boot
@@ -51,7 +52,7 @@ You can add nohup command to `/etc/rc.local`, if the file exists in your system.
 
 ```bash
 echo \
-"nohup /certail_directory/FamilyCloudSpeederInShell/speedup.sh > /certail_directory/FamilyCloudSpeederInShell/speedup.log 2>&1 &" \
+"nohup /certail_directory/speedup.sh > /certail_directory/speedup.log 2>&1 &" \
 >> /etc/rc.local
 ```
 
