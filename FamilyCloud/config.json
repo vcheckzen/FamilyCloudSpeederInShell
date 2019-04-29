@@ -5,6 +5,9 @@
     "method": "POST",
     "rate": 60
   },
+  "send_data": {
+    "prodCode": "76"
+  },
   "extra_header": {
     "User-Agent": "Apache-HttpClient/UNAVAILABLE (java 1.4)"
   }

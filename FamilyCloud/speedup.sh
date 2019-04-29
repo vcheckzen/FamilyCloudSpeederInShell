@@ -9,6 +9,7 @@ accessToken=`getSingleJsonValue "$config" "accessToken"`
 AppKey=`getSingleJsonValue "$config" "AppKey"`
 method=`getSingleJsonValue "$config" "method"`
 rate=`getSingleJsonValue "$config" "rate"`
+prodCode=`getSingleJsonValue "$config" "prodCode"`
 UA=`getSingleJsonValue "$config" "User-Agent"`
 extra_header="User-Agent:$UA"
 
@@ -35,9 +36,10 @@ do
     split="~"
     headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"Date:$date"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
+    send_data="prodCode=$prodCode"
     for i in 1 2 3
     do
-        result=`post "$headers" "$HOST$ACCESS_URL"`
+        result=`post "$headers" "$HOST$ACCESS_URL" "$send_data"`
     done
     echo "heart_beat:<signature:$signature>"
     echo "date:<$date>"
