@@ -20,7 +20,7 @@ post() {
     HEADER="$1"
     URL="$2"
     PAYLOAD="$3"
-    eval curl -s -X POST "${URL}" "${HEADER}" -w %http_code -d "'$PAYLOAD'"
+    eval curl -s -X POST "${URL}" "${HEADER}" -w "%{http_code}" -d "'$PAYLOAD'"
 }
 
 getSingleJsonValue() {
