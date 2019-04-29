@@ -11,8 +11,13 @@ A shell implementation of FamilyCloudSpeeder, ESurfing, runs properly on almost 
 Assuming you've installed git, then
 
 ```bash
-git clone https://github.com/vcheckzen/FamilyCloudSpeederInShell.git
-cd FamilyCloudSpeederInShell
+git clone -b beta https://github.com/vcheckzen/FamilyCloudSpeederInShell.git
+
+# CloudDisk
+cd FamilyCloudSpeederInShell/CloudDisk
+
+# FamilyCloud
+cd FamilyCloudSpeederInShell/FamilyCloud
 ```
 
 ### Get Your Specific Parameters
@@ -42,7 +47,7 @@ chmod +x speedup.sh utils.sh
 Please note that `certail_directory` should be replaced.
 
 ```bash
-nohup /certail_directory/FamilyCloudSpeederInShell/speedup.sh > /certail_directory/FamilyCloudSpeederInShell/speedup.log 2>&1 &
+nohup /certail_directory/speedup.sh > /certail_directory/speedup.log 2>&1 &
 ```
 
 ### Auto Run on System Boot
@@ -51,7 +56,7 @@ You can add nohup command to `/etc/rc.local`, if the file exists in your system.
 
 ```bash
 echo \
-"nohup /certail_directory/FamilyCloudSpeederInShell/speedup.sh > /certail_directory/FamilyCloudSpeederInShell/speedup.log 2>&1 &" \
+"nohup /certail_directory/speedup.sh > /certail_directory/speedup.log 2>&1 &" \
 >> /etc/rc.local
 ```
 
