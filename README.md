@@ -1,5 +1,7 @@
 # FamilyCloudSpeederInShell
 
+This project has merged to [aiyijing/familycloudaccelerate](https://github.com/aiyijing/familycloudaccelerate)
+
 ## Introduction
 
 A shell implementation of FamilyCloudSpeeder, ESurfing, runs properly on almost all linux platform.
@@ -65,7 +67,3 @@ echo \
 "nohup /certail_directory/speedup.sh > /certail_directory/speedup.log 2>&1 &" \
 >> /etc/rc.local
 ```
-
-# Appreciation
-
-- [familycloudaccelerate](https://github.com/aiyijing/familycloudaccelerate)
