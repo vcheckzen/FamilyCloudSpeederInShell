@@ -31,7 +31,6 @@ do
     data="SessionKey=$session_key&Operate=$method&RequestURI=$ACCESS_URL&Date=$date"
     key="$session_secret"
     signature=`hashHmac "sha1" "$data" "$key"`
-    split="~"
     headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"Date:$date"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
     qosClientSn=`cat /proc/sys/kernel/random/uuid`
