@@ -3,7 +3,7 @@
   "AppKey": "600100885",
   "setting": {
     "method": "POST",
-    "rate": 60
+    "rate": 600
   },
   "send_data": {
     "prodCode": "76"
