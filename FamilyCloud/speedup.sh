@@ -26,9 +26,12 @@ do
     split="~"
     headers_string="AppKey:$AppKey"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
-    login_result=`post "$headers" "$HOST$LOGIN_URL?accessToken=$accessToken"`
-    session_key=`echo "$login_result" | grep -Eo "familySessionKey>.+</familySessionKey" | sed 's/familySessionKey>//' | sed 's/<\/familySessionKey//'`
-    session_secret=`echo "$login_result" | grep -Eo "familySessionSecret>.+</familySessionSecret" | sed 's/familySessionSecret>//' | sed 's/<\/familySessionSecret//'`
+    while [[ "`echo ${result} | grep -oE \"sessionKey>.+</sessionKey\"`" == "" ]];
+    do
+        result=`post "$headers" "$HOST$LOGIN_URL?accessToken=$accessToken"`
+    done
+    session_key=`echo "$result" | grep -Eo "familySessionKey>.+</familySessionKey" | sed 's/familySessionKey>//' | sed 's/<\/familySessionKey//'`
+    session_secret=`echo "$result" | grep -Eo "familySessionSecret>.+</familySessionSecret" | sed 's/familySessionSecret>//' | sed 's/<\/familySessionSecret//'`
     date=`env LANG=C.UTF-8 date -u '+%a, %d %b %Y %T GMT'`
     data="SessionKey=$session_key&Operate=$method&RequestURI=$ACCESS_URL&Date=$date"
     key="$session_secret"
@@ -36,7 +39,7 @@ do
     headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"Date:$date"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
     send_data="prodCode=$prodCode"
-    for i in 1 2 3
+    while [[ "`echo ${result} | grep -oE \"dialAcc.+[a-z]+::[0-9]+\"`" == "" ]];
     do
         result=`post "$headers" "$HOST$ACCESS_URL" "$send_data"`
     done
@@ -44,7 +47,7 @@ do
     echo "date:<$date>"
     echo "status_code:${result: -3}"
     echo -e "response:\n`echo ${result} | sed "s^[0-9]\{3\}$^^"`"
-    [[ "`echo ${result} | grep open`" != "" ]] &&  hint="succeeded" || hint="failed"
+    [[ "`echo ${result} | grep dialAcc`" != "" ]] &&  hint="succeeded" || hint="failed"
     echo "Sending heart_beat package <$count> $hint"
     echo "*******************************************"
     sleep ${rate}
