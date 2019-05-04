@@ -26,10 +26,7 @@ do
     split="~"
     headers_string="AppKey:$AppKey"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
-    while [[ "`echo ${result} | grep -oE \"sessionKey>.+</sessionKey\"`" == "" ]];
-    do
-        result=`post "$headers" "$HOST$LOGIN_URL?accessToken=$accessToken"`
-    done
+    result=`post "$headers" "$HOST$LOGIN_URL?accessToken=$accessToken"`
     session_key=`echo "$result" | grep -Eo "familySessionKey>.+</familySessionKey" | sed 's/familySessionKey>//' | sed 's/<\/familySessionKey//'`
     session_secret=`echo "$result" | grep -Eo "familySessionSecret>.+</familySessionSecret" | sed 's/familySessionSecret>//' | sed 's/<\/familySessionSecret//'`
     date=`env LANG=C.UTF-8 date -u '+%a, %d %b %Y %T GMT'`
@@ -39,10 +36,7 @@ do
     headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"Date:$date"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
     send_data="prodCode=$prodCode"
-    while [[ "`echo ${result} | grep -oE \"dialAcc.+[a-z]+::[0-9]+\"`" == "" ]];
-    do
-        result=`post "$headers" "$HOST$ACCESS_URL" "$send_data"`
-    done
+    result=`post "$headers" "$HOST$ACCESS_URL" "$send_data"`
     echo "heart_beat:<signature:$signature>"
     echo "date:<$date>"
     echo "status_code:${result: -3}"

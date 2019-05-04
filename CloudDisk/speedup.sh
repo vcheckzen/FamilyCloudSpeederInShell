@@ -24,10 +24,7 @@ do
     split="~"
     headers_string="$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
-    while [[ "`echo ${result} | grep -oE \"sessionKey>.+</sessionKey\"`" == "" ]];
-    do
-        result=`get "$HOST$LOGIN_URL?accessToken=$accessToken" "$headers"`
-    done
+    result=`get "$HOST$LOGIN_URL?accessToken=$accessToken" "$headers"`
     session_key=`echo "$result" | grep -Eo "sessionKey>.*</sessionKey" | sed 's/<\/sessionKey//' | sed 's/sessionKey>//'`
     session_secret=`echo "$result" | grep -Eo "sessionSecret>.*</sessionSecret" | sed 's/sessionSecret>//' | sed 's/<\/sessionSecret//'`
     date=`env LANG=C.UTF-8 date -u '+%a, %d %b %Y %T GMT'`
@@ -37,10 +34,7 @@ do
     headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"Date:$date"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
     qosClientSn=`cat /proc/sys/kernel/random/uuid`
-    while [[ "`echo ${result} | grep -oE \"dialAcc.+[a-z]+::[0-9]+\"`" == "" ]];
-    do
-        result=`get "$HOST$ACCESS_URL?qosClientSn=$qosClientSn" "$headers"`
-    done
+    result=`get "$HOST$ACCESS_URL?qosClientSn=$qosClientSn" "$headers"`
     echo "heart_beat:<signature:$signature>"
     echo "date:<$date>"
     echo -e "response:\n$result"
