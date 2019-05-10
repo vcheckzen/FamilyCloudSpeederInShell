@@ -1,6 +1,6 @@
 # FamilyCloudSpeederInShell
 
-This project has merged to [aiyijing/familycloudaccelerate](https://github.com/aiyijing/familycloudaccelerate)
+This project has merged to [aiyijing/familycloudaccelerate](https://github.com/aiyijing/familycloudaccelerate), but will update here first.
 
 ## Introduction
 
@@ -24,12 +24,7 @@ cd FamilyCloudSpeederInShell/FamilyCloud
 
 ### Get Your Specific Parameters
 
-Fill in the `config.json` file, following [this](https://github.com/MegatronKing/HttpCanary/tree/master/docs/v1/zh-CN) and [this guide](https://github.com/vcheckzen/FamilyCloudSpeederInShell/issues/5). Note that you should open `CloudDisk` rather than `FamilyCloud` APP. Then, get parameters from the request below.
-
-```bash
-Host: api.cloud.189.cn
-Path: login4MergedClient.action, loginByOpen189AccessToken.action
-```
+Fill in the `config.json` file, following [this](https://github.com/MegatronKing/HttpCanary/tree/master/docs/v1/zh-CN) and [this guide](https://github.com/vcheckzen/FamilyCloudSpeederInShell/issues/5).
 
 ### Install Requirements and Test Environment
 
