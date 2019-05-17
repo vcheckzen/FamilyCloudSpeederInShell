@@ -43,7 +43,7 @@ nohup /certail_directory/speedup.sh > /certail_directory/speedup.log 2>&1 &
 # Log cleaning
 crontab -l > tmp && \
 echo "0 */6 * * * >/certail_directory/speedup.log" >> tmp && \
-contab tmp && \rm -f tmp
+contab tmp && rm -f tmp
 
 ```
 
