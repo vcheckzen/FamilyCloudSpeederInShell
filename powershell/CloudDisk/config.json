@@ -1,0 +1,7 @@
+{
+  "accessToken": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "setting": {
+    "method": "GET",
+    "rate": 600
+  }
+}
