@@ -6,8 +6,8 @@ This project has merged to [aiyijing/familycloudaccelerate](https://github.com/a
 
 A script implementation of FamilyCloudSpeeder, ESurfing, runs properly on almost all linux and windows platform.
 
-- [Linux](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/shell)
 - [Windows](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/powershell)
+- [Linux and macOS](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/shell)
 
 ## AccessToken
 
