@@ -29,7 +29,6 @@ function Login {
 
 function SpeedUp {
     param (
-        $qosClientSn,
         $sessionKey,
         $signature,
         $date,
@@ -41,7 +40,7 @@ function SpeedUp {
     $headers.Add('Date', $date)
     $postParams = @{prodCode = $prodCode }
     try {
-        Invoke-WebRequest -Uri "${HOSTNAME}${ACCESS_URL}?qosClientSn=${qosClientSn}" -Headers $headers -Method POST -Body $postParams
+        Invoke-WebRequest -Uri "${HOSTNAME}${ACCESS_URL}" -Headers $headers -Method POST -Body $postParams
     }
     catch {
         $sesponseStream = $_.Exception.Response.GetResponseStream()
@@ -75,7 +74,7 @@ while (1) {
 
     "HeartBeat:<Signature:${signature}>"
     "Date:<${formatedDate}>"
-    $result = SpeedUp (New-Guid) $sessionKey $signature $formatedDate $CONFIG.sendData.prodCode
+    $result = SpeedUp $sessionKey $signature $formatedDate $CONFIG.sendData.prodCode
     "Response:$result"
     $msg = 'Failed'
     if (([xml]$result).error.message.contains('open')) {
