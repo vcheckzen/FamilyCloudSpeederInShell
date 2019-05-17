@@ -5,6 +5,6 @@
 # Prerequisite of Backgourd Running
 
 ```powershell
-# Open Powershell with Administrators Privilege, Excute The Command below and Input 'A'.
+# Open Powershell with Administrator Privilege, Excute The Command below and Input 'A'.
 Set-ExecutionPolicy Unrestricted
 ```
