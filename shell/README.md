@@ -35,14 +35,14 @@ chmod +x speedup.sh utils.sh
 
 ### Run in Background
 
-Please note that `certail_directory` should be replaced.
+Please note that `certain_directory` should be replaced.
 
 ```bash
-nohup /certail_directory/speedup.sh > /certail_directory/speedup.log 2>&1 &
+nohup /certain_directory/speedup.sh > /certain_directory/speedup.log 2>&1 &
 
 # Log cleaning
 crontab -l > tmp && \
-echo "0 */6 * * * >/certail_directory/speedup.log" >> tmp && \
+echo "0 */6 * * * >/certain_directory/speedup.log" >> tmp && \
 contab tmp && rm -f tmp
 
 ```
@@ -53,6 +53,6 @@ You can add nohup command to `/etc/rc.local`, if the file exists in your system.
 
 ```bash
 echo \
-"nohup /certail_directory/speedup.sh > /certail_directory/speedup.log 2>&1 &" \
+"nohup /certain_directory/speedup.sh > /certain_directory/speedup.log 2>&1 &" \
 >> /etc/rc.local
 ```
