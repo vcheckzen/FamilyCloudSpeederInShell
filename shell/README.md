@@ -1,19 +1,5 @@
 # How to Use
 
-## Download the Code
-
-Assuming you've installed git, then
-
-```bash
-git clone https://github.com/vcheckzen/FamilyCloudSpeederInShell.git
-
-# CloudDisk
-cd FamilyCloudSpeederInShell/CloudDisk
-
-# FamilyCloud
-cd FamilyCloudSpeederInShell/FamilyCloud
-```
-
 ## Install Requirements
 
 ```bash
@@ -26,33 +12,19 @@ curl -s https://ipconfig.io/json | grep -Eo "\"ip\":\"[0-9]{1,3}\.[0-9]{1,3}\.[0
 wget -qO- https://ipconfig.io/json | grep -Eo "\"ip\":\"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\""
 ```
 
-### Testing Run
+## Download the Code and Excute
+
+Assuming you've installed git, then
 
 ```bash
+git clone https://github.com/vcheckzen/FamilyCloudSpeederInShell.git
+
+# CloudDisk
+cd FamilyCloudSpeederInShell/CloudDisk
+
+# FamilyCloud
+cd FamilyCloudSpeederInShell/FamilyCloud
+
 chmod +x speedup.sh utils.sh
 ./speedup.sh
-```
-
-### Run in Background
-
-Please note that `certain_directory` should be replaced.
-
-```bash
-nohup /certain_directory/speedup.sh > /certain_directory/speedup.log 2>&1 &
-
-# Log cleaning
-crontab -l > tmp && \
-echo "0 */6 * * * >/certain_directory/speedup.log" >> tmp && \
-contab tmp && rm -f tmp
-
-```
-
-### Auto Run on System Boot
-
-You can add nohup command to `/etc/rc.local`, if the file exists in your system.
-
-```bash
-echo \
-"nohup /certain_directory/speedup.sh > /certain_directory/speedup.log 2>&1 &" \
->> /etc/rc.local
 ```
