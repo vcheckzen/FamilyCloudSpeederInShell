@@ -12,19 +12,9 @@ curl -s https://ipconfig.io/json | grep -Eo "\"ip\":\"[0-9]{1,3}\.[0-9]{1,3}\.[0
 wget -qO- https://ipconfig.io/json | grep -Eo "\"ip\":\"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\""
 ```
 
-## Download the Code and Excute
-
-Assuming you've installed git, then
+## Download the Code, Edit Config File and Excute
 
 ```bash
-git clone https://github.com/vcheckzen/FamilyCloudSpeederInShell.git
-
-# CloudDisk
-cd FamilyCloudSpeederInShell/CloudDisk
-
-# FamilyCloud
-cd FamilyCloudSpeederInShell/FamilyCloud
-
 chmod +x speedup.sh utils.sh
 ./speedup.sh
 ```
