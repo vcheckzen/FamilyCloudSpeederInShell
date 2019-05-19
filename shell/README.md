@@ -12,9 +12,8 @@ curl -s https://ipconfig.io/json | grep -Eo "\"ip\":\"[0-9]{1,3}\.[0-9]{1,3}\.[0
 wget -qO- https://ipconfig.io/json | grep -Eo "\"ip\":\"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\""
 ```
 
-## Download the Code, Edit Config File and Excute
+## Download the Code, Edit Config File Then, Excute
 
 ```bash
-chmod +x speedup.sh utils.sh
-./speedup.sh
+chmod +x speedup.sh utils.sh && ./speedup.sh
 ```
