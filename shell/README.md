@@ -3,7 +3,7 @@
 ## Install Requirements
 
 ```bash
-# Requirements on OpenWRT, Padavan and other RouterOS based on entware or optware environment
+# Requirements on OpenWRT, Padavan, Merlin and other platform with entware or optware environment
 opkg update && opkg install \
 coreutils-nohup libreadline libcurl libopenssl bash curl wget openssl-util ca-certificates ca-bundle
 
