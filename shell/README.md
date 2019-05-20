@@ -25,7 +25,5 @@ chmod +x speedup.sh utils.sh && ./speedup.sh
 # Ensure speedup.sh works fine and make 'certain_directory' replaced before Adding.
 # Manipulation with router's web control panel was recommended.
 # For more details, search for crontab syntax on your own.
-crontab -l > conf && \
-echo "*/10 * * * * /certain_directory/speedup_router.sh" >> conf && \
-crontab conf && rm -f conf
+crontab -l > conf && echo "*/10 * * * * /certain_directory/speedup_router.sh" >> conf && crontab conf && rm -f conf
 ```
