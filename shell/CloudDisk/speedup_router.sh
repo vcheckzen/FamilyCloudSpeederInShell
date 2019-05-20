@@ -15,7 +15,7 @@ HOST="http://api.cloud.189.cn"
 LOGIN_URL="/loginByOpen189AccessToken.action"
 ACCESS_URL="/speed/startSpeedV2.action"
 echo "*******************************************" | logger
-echo "Sending heart_beat package <$count>" | logger
+echo "Sending heart_beat package" | logger
 split="~"
 headers_string="$extra_header"
 headers=`formatHeaderString "$split" "$headers_string"`
@@ -34,5 +34,5 @@ echo "heart_beat:<signature:$signature>" | logger
 echo "date:<$date>" | logger
 echo -e "response:\n$result" | logger
 [[ "`echo ${result} | grep dialAcc`" != "" ]] &&  hint="succeeded" || hint="failed"
-echo "Sending heart_beat package <$count> $hint" | logger
+echo "Sending heart_beat package $hint" | logger
 echo "*******************************************" | logger
