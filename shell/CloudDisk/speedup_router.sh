@@ -14,7 +14,6 @@ extra_header="User-Agent:$UA"
 HOST="http://api.cloud.189.cn"
 LOGIN_URL="/loginByOpen189AccessToken.action"
 ACCESS_URL="/speed/startSpeedV2.action"
-
 echo "*******************************************" | logger
 echo "Sending heart_beat package <$count>" | logger
 split="~"
