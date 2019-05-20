@@ -21,7 +21,7 @@ chmod +x speedup.sh utils.sh && ./speedup.sh
 ## Run by Crontab
 
 ```bash
-# Passed Testing on Padavan 3.4.3.9 and PandoraBox 17.01.
+# Passed testing on Padavan 3.4.3.9 and PandoraBox 17.01.
 # Ensure speedup.sh works fine and make 'certain_directory' replaced before Adding.
 # Manipulation with router's web control panel was recommended.
 # For more details, search for crontab syntax on your own.
