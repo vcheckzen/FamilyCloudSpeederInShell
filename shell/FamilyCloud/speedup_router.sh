@@ -17,7 +17,7 @@ HOST="http://api.cloud.189.cn"
 LOGIN_URL="/login4MergedClient.action"
 ACCESS_URL="/family/qos/startQos.action"
 echo "*******************************************" | logger
-echo "Sending heart_beat package <$count>" | logger
+echo "Sending heart_beat package" | logger
 split="~"
 headers_string="AppKey:$AppKey"${split}"$extra_header"
 headers=`formatHeaderString "$split" "$headers_string"`
@@ -37,5 +37,5 @@ echo "date:<$date>" | logger
 echo "status_code:${result: -3}" | logger
 echo -e "response:\n`echo ${result} | sed "s^[0-9]\{3\}$^^"`" | logger
 [[ "`echo ${result} | grep dialAcc`" != "" ]] &&  hint="succeeded" || hint="failed"
-echo "Sending heart_beat package <$count> $hint" | logger
+echo "Sending heart_beat package $hint" | logger
 echo "*******************************************" | logger
