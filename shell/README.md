@@ -15,7 +15,7 @@ wget -qO- https://ipconfig.io/json | grep -Eo '"ip":"[0-9]{1,3}\.[0-9]{1,3}\.[0-
 ## Download the Code, Edit Config File Then, Excute
 
 ```bash
-chmod +x speedup.sh utils.sh && ./speedup.sh
+chmod +x *.sh && ./speedup.sh
 ```
 
 ## Run by Crontab
