@@ -4,6 +4,9 @@ base_dir=`dirname $0`
 source "$base_dir/utils.sh"
 config="$base_dir/config.json"
 
+echoToLogreader() {
+    logger -t FamilyCloud "${1}"
+}
 
 accessToken=`getSingleJsonValue "$config" "accessToken"`
 AppKey=`getSingleJsonValue "$config" "AppKey"`
@@ -16,8 +19,8 @@ extra_header="User-Agent:$UA"
 HOST="http://api.cloud.189.cn"
 LOGIN_URL="/login4MergedClient.action"
 ACCESS_URL="/family/qos/startQos.action"
-echo "*******************************************" | logger -t FamilyCloud
-echo "Sending Heartbeat Package..." | logger -t FamilyCloud
+echoToLogreader "*******************************************"
+echoToLogreader "Sending Heartbeat Package ..."
 split="~"
 headers_string="AppKey:$AppKey"${split}"$extra_header"
 headers=`formatHeaderString "$split" "$headers_string"`
@@ -32,10 +35,9 @@ headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"D
 headers=`formatHeaderString "$split" "$headers_string"`
 send_data="prodCode=$prodCode"
 result=`post "$headers" "$HOST$ACCESS_URL" "$send_data"`
-echo "Heartbeat Signature: $signature>" | logger -t FamilyCloud
-echo "Date: <$date>" | logger -t FamilyCloud
-echo "Status Code: ${result: -3}" | logger -t FamilyCloud
-echo -e "Response: \n`echo ${result} | sed "s^[0-9]\{3\}$^^"`" | logger -t FamilyCloud
+echoToLogreader "Heartbeat Signature: $signature"
+echoToLogreader "Date: $date"
+echoToLogreader "Response: ${result}"
 [[ "`echo ${result} | grep dialAcc`" != "" ]] &&  hint="succeeded" || hint="failed"
-echo -e "Heartbeating $hint." | logger -t FamilyCloud
-echo "*******************************************" | logger -t FamilyCloud
+echoToLogreader "Heartbeating $hint."
+echoToLogreader "*******************************************"
