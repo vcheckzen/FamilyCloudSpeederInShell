@@ -37,5 +37,5 @@ echo "date:<$date>" | logger
 echo "status_code:${result: -3}" | logger
 echo -e "response:\n`echo ${result} | sed "s^[0-9]\{3\}$^^"`" | logger
 [[ "`echo ${result} | grep dialAcc`" != "" ]] &&  hint="succeeded" || hint="failed"
-echo "Sending heart_beat package $hint" | logger
+echo -e "\nSending heart_beat package $hint" | logger
 echo "*******************************************" | logger
