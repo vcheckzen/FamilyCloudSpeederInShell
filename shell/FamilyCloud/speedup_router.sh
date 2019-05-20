@@ -16,8 +16,8 @@ extra_header="User-Agent:$UA"
 HOST="http://api.cloud.189.cn"
 LOGIN_URL="/login4MergedClient.action"
 ACCESS_URL="/family/qos/startQos.action"
-echo "*******************************************" | logger
-echo "Sending heart_beat package" | logger
+echo "*******************************************" | logger -t FamilyCloud
+echo "Sending Heartbeat Package" | logger -t FamilyCloud
 split="~"
 headers_string="AppKey:$AppKey"${split}"$extra_header"
 headers=`formatHeaderString "$split" "$headers_string"`
@@ -32,10 +32,10 @@ headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"D
 headers=`formatHeaderString "$split" "$headers_string"`
 send_data="prodCode=$prodCode"
 result=`post "$headers" "$HOST$ACCESS_URL" "$send_data"`
-echo "heart_beat:<signature:$signature>" | logger
-echo "date:<$date>" | logger
-echo "status_code:${result: -3}" | logger
-echo -e "response:\n`echo ${result} | sed "s^[0-9]\{3\}$^^"`" | logger
+echo "heart_beat:<signature:$signature>" | logger -t FamilyCloud
+echo "date:<$date>" | logger -t FamilyCloud
+echo "status_code:${result: -3}" | logger -t FamilyCloud
+echo -e "response:\n`echo ${result} | sed "s^[0-9]\{3\}$^^"`" | logger -t FamilyCloud
 [[ "`echo ${result} | grep dialAcc`" != "" ]] &&  hint="succeeded" || hint="failed"
-echo -e "\nSending heart_beat package $hint" | logger
-echo "*******************************************" | logger
+echo -e "Heartbeating $hint" | logger -t FamilyCloud
+echo "*******************************************" | logger -t FamilyCloud
