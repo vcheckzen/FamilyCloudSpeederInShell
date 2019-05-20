@@ -7,7 +7,6 @@ config="$base_dir/config.json"
 
 accessToken=`getSingleJsonValue "$config" "accessToken"`
 method=`getSingleJsonValue "$config" "method"`
-rate=`getSingleJsonValue "$config" "rate"`
 UA=`getSingleJsonValue "$config" "User-Agent"`
 extra_header="User-Agent:$UA"
 
@@ -38,4 +37,3 @@ echo -e "response:\n$result" | logger
 [[ "`echo ${result} | grep dialAcc`" != "" ]] &&  hint="succeeded" || hint="failed"
 echo "Sending heart_beat package <$count> $hint" | logger
 echo "*******************************************" | logger
-sleep ${rate}
