@@ -8,7 +8,6 @@ config="$base_dir/config.json"
 accessToken=`getSingleJsonValue "$config" "accessToken"`
 AppKey=`getSingleJsonValue "$config" "AppKey"`
 method=`getSingleJsonValue "$config" "method"`
-rate=`getSingleJsonValue "$config" "rate"`
 prodCode=`getSingleJsonValue "$config" "prodCode"`
 UA=`getSingleJsonValue "$config" "User-Agent"`
 extra_header="User-Agent:$UA"
@@ -17,7 +16,6 @@ extra_header="User-Agent:$UA"
 HOST="http://api.cloud.189.cn"
 LOGIN_URL="/login4MergedClient.action"
 ACCESS_URL="/family/qos/startQos.action"
-count=0
 echo "*******************************************" | logger
 echo "Sending heart_beat package <$count>" | logger
 split="~"
@@ -41,4 +39,3 @@ echo -e "response:\n`echo ${result} | sed "s^[0-9]\{3\}$^^"`" | logger
 [[ "`echo ${result} | grep dialAcc`" != "" ]] &&  hint="succeeded" || hint="failed"
 echo "Sending heart_beat package <$count> $hint" | logger
 echo "*******************************************" | logger
-sleep ${rate}
