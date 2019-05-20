@@ -4,6 +4,9 @@ base_dir=`dirname $0`
 source "$base_dir/utils.sh"
 config="$base_dir/config.json"
 
+echoToLogreader() {
+    logger -t CloudDisk "${1}"
+}
 
 accessToken=`getSingleJsonValue "$config" "accessToken"`
 method=`getSingleJsonValue "$config" "method"`
@@ -14,8 +17,8 @@ extra_header="User-Agent:$UA"
 HOST="http://api.cloud.189.cn"
 LOGIN_URL="/loginByOpen189AccessToken.action"
 ACCESS_URL="/speed/startSpeedV2.action"
-echo "*******************************************" | logger
-echo "Sending heart_beat package" | logger
+echoToLogreader "*******************************************"
+echoToLogreader "Sending Heartbeat Package ..."
 split="~"
 headers_string="$extra_header"
 headers=`formatHeaderString "$split" "$headers_string"`
@@ -30,9 +33,9 @@ headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"D
 headers=`formatHeaderString "$split" "$headers_string"`
 qosClientSn=`cat /proc/sys/kernel/random/uuid`
 result=`get "$HOST$ACCESS_URL?qosClientSn=$qosClientSn" "$headers"`
-echo "heart_beat:<signature:$signature>" | logger
-echo "date:<$date>" | logger
-echo -e "response:\n$result" | logger
+echoToLogreader "Heartbeat Signature: $signature"
+echoToLogreader "Date: $date"
+echoToLogreader "Response: $result"
 [[ "`echo ${result} | grep dialAcc`" != "" ]] &&  hint="succeeded" || hint="failed"
-echo "Sending heart_beat package $hint" | logger
-echo "*******************************************" | logger
+echoToLogreader "Heartbeating $hint."
+echoToLogreader "*******************************************"
