@@ -6,11 +6,16 @@ A script implementation of FamilyCloudSpeeder, ESurfing, runs properly on Window
 [![GitHub forks](https://img.shields.io/github/forks/vcheckzen/FamilyCloudSpeederInShell.svg?style=flat-square)](https://github.com/WangNingkai/OLAINDEX/network)
 [![GitHub license](https://img.shields.io/github/license/vcheckzen/FamilyCloudSpeederInShell.svg?style=flat-square)](https://github.com/WangNingkai/OLAINDEX/blob/master/LICENSE)
 
-## OS Supported
+## Supported OS
 
 - [Linux and macOS](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/shell)
-- [Windows 7 or Later](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/powershell)
+- [Windows 7 and Later](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/powershell)
 
-## How to Use
+## Get Started
 
-Go to [wiki](https://github.com/vcheckzen/FamilyCloudSpeederInShell/wiki).
+- Download the code
+- Edit `config.json`
+- Excute `speedup.sh`
+- Enjoy high speed of your network
+
+Read [wiki](https://github.com/vcheckzen/FamilyCloudSpeederInShell/wiki) to kown detailed information.
