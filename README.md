@@ -18,4 +18,4 @@ A script implementation of FamilyCloudSpeeder, ESurfing, runs properly on Window
 - Excute `speedup.sh`
 - Enjoy high speed of your network
 
-Read [wiki](https://github.com/vcheckzen/FamilyCloudSpeederInShell/wiki) to kown detailed information.
+Read [wiki](https://github.com/vcheckzen/FamilyCloudSpeederInShell/wiki) to learn detailed information.
