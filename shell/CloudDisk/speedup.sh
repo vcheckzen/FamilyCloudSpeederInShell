@@ -33,7 +33,7 @@ do
     signature=`hashHmac "sha1" "$data" "$key"`
     headers_string="SessionKey:$session_key"${split}"Signature:$signature"${split}"Date:$date"${split}"$extra_header"
     headers=`formatHeaderString "$split" "$headers_string"`
-    qosClientSn=`cat /proc/sys/kernel/random/uuid`
+    qosClientSn="$session_key"
     result=`get "$HOST$ACCESS_URL?qosClientSn=$qosClientSn" "$headers"`
     echo "heart_beat:<signature:$signature>"
     echo "date:<$date>"
