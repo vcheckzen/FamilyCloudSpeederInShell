@@ -1,8 +1,8 @@
 # FamilyCloudSpeederInShell
 
-[![GitHub stars](https://img.shields.io/github/stars/vcheckzen/FamilyCloudSpeederInShell.svg?style=flat-square)](https://github.com/WangNingkai/OLAINDEX/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/vcheckzen/FamilyCloudSpeederInShell.svg?style=flat-square)](https://github.com/WangNingkai/OLAINDEX/network)
-[![GitHub license](https://img.shields.io/github/license/vcheckzen/FamilyCloudSpeederInShell.svg?style=flat-square)](https://github.com/WangNingkai/OLAINDEX/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/vcheckzen/FamilyCloudSpeederInShell.svg?style=flat-square)](https://github.com/vcheckzen/FamilyCloudSpeederInShell/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/vcheckzen/FamilyCloudSpeederInShell.svg?style=flat-square)](https://github.com/vcheckzen/FamilyCloudSpeederInShell/network)
+[![GitHub license](https://img.shields.io/github/license/vcheckzen/FamilyCloudSpeederInShell.svg?style=flat-square)](https://github.com/vcheckzen/FamilyCloudSpeederInShell/blob/master/LICENSE)
 
 A script implementation of FamilyCloudSpeeder, ESurfing, runs properly on Windows and Unix-like platform.
 
