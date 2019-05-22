@@ -8,7 +8,7 @@ A script implementation of FamilyCloudSpeeder, ESurfing, runs properly on Window
 
 ## Supported OS
 
-- [Linux and macOS](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/shell)
+- [Linux or macOS](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/shell)
 - [Windows 7 and Later](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/powershell)
 
 ## Get Started
