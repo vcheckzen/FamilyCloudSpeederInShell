@@ -9,6 +9,6 @@ A script implementation of FamilyCloudSpeeder, ESurfing, runs properly on Window
 - [Linux and macOS](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/shell)
 - [Windows 7 or Later](https://github.com/vcheckzen/FamilyCloudSpeederInShell/tree/master/powershell)
 
-## AccessToken
+## How to Use
 
-Fill `accessToken` in the `config.json` file, following [this guide](https://github.com/vcheckzen/FamilyCloudSpeederInShell/issues/5).
+May this [wiki](https://github.com/vcheckzen/FamilyCloudSpeederInShell/wiki) help you.
