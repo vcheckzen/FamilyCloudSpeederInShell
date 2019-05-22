@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # copyright logi all rights reserved.
+
 source /etc/storage/script/init.sh
 
 while [[ ! -f /opt/bin/opkg ]]

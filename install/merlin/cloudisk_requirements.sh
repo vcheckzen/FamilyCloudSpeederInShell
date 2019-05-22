@@ -13,9 +13,3 @@ opkg update && opkg install \
 coreutils-nohup libreadline libcurl libopenssl \
 bash curl wget openssl-util ca-certificates ca-bundle
 logger -t 'CloudDisk' 'Requirements installed.'
-
-if [[ "`ps | grep speedup | grep -v grep`" == "" ]];
-then
-    nohup /opt/bin/bash /jffs/scripts/CloudDisk/speedup.sh > /dev/null 2>&1 &
-    logger -t 'CloudDisk' 'Started.'
-fi
