@@ -19,3 +19,14 @@ openwrt() {
     chmod +x /root/CloudDisk/*.sh
     sed '1i nohup /root/CloudDisk/speedup.sh > /dev/null 2>&1 &' -i /etc/rc.local
 }
+
+case $1 in
+    padavan)  padavan
+    ;;
+    merlin)  merlin
+    ;;
+    openwrt)  openwrt
+    ;;
+    *)  echo '仅支持 padavan, merlin 和类 openwrt 固件'
+    ;;
+esac
