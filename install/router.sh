@@ -26,7 +26,7 @@ padavan_cron(){
 
 merlin_bootup() {
     BASE_DIR='/jffs/scripts/'
-    BOOT_FILE=${BASE_DIR}script/cloudisk_bootup.sh
+    BOOT_FILE=${BASE_DIR}cloudisk_bootup.sh
     curl -o ${BOOT_FILE} https://raw.githubusercontent.com/vcheckzen/FamilyCloudSpeederInShell/assistantce/install/merlin/cloudisk_bootup.sh
     if [[ "`cat ${BASE_DIR}wan-start | grep -Eo ${BOOT_FILE}`" == "" ]]; then
         echo "source ${BOOT_FILE}" >> ${BASE_DIR}wan-start
@@ -36,7 +36,7 @@ merlin_bootup() {
 
 merlin_cron() {
     BASE_DIR='/jffs/scripts/'
-    BOOT_FILE=${BASE_DIR}script/cloudisk_requirements.sh
+    BOOT_FILE=${BASE_DIR}/cloudisk_requirements.sh
     curl -o ${BOOT_FILE} https://raw.githubusercontent.com/vcheckzen/FamilyCloudSpeederInShell/assistantce/install/merlin/cloudisk_requirements.sh
     if [[ "`cat ${BASE_DIR}wan-start | grep -Eo ${BOOT_FILE}`" == "" ]]; then
          echo "source ${BOOT_FILE}" >> ${BASE_DIR}wan-start
@@ -53,7 +53,7 @@ merlin_cron() {
 openwrt_bootup() {
     chmod +x /root/CloudDisk/*.sh
     if [[ "`cat /etc/rc.local | grep -Eo speedup`" == "" ]]; then
-        sed '1i nohup /root/CloudDisk/speedup.sh > /dev/null 2>&1 &' -i /etc/rc.local
+        sed '1i nohup /root/CloudDisk/speedup.sh >/dev/null 2>&1 &' -i /etc/rc.local
     fi
 }
 

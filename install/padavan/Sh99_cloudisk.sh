@@ -18,6 +18,6 @@ logger -t 'CloudDisk' 'Requirements installed.'
 
 if [[ "`ps | grep speedup | grep -v grep`" == "" ]];
 then
-    nohup /opt/bin/bash /etc/storage/CloudDisk/speedup.sh > /dev/null 2>&1 &
+    nohup /opt/bin/bash /etc/storage/CloudDisk/speedup.sh >/dev/null 2>&1 &
     logger -t 'CloudDisk' 'Started.'
 fi
