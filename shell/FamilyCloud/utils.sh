@@ -26,13 +26,13 @@ post() {
     HEADER="$1"
     URL="$2"
     PAYLOAD="$3"
-    eval curl -s --connect-timeout "${CONNECTION_TIME}" -m "${TRANSMISSION_TIME}" -X POST "${URL}" "${HEADER}" -w "%{http_code}" -d "'$PAYLOAD'"
+    eval curl -s --connect-timeout "${CONNECTION_TIME}" -m "${TRANSMISSION_TIME}" -X POST "${URL}" "${HEADER}" -w %{http_code} -d "'$PAYLOAD'"
 }
 
 getSingleJsonValue() {
     FILE="$1"
     KEY="$2"
-    cat ${FILE} | grep "$KEY" | sed 's/,$//' | awk -F "[:]" '{ print $2 }' | sed 's/\( \|"\)//g'
+    cat ${FILE} | grep "$KEY" | sed 's/,$//' | awk -F "[:]" '{ print $2 }' | sed 's/ //g' | sed 's/"//g'
 }
 
 hashHmac() {
