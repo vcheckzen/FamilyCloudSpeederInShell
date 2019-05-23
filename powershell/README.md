@@ -5,6 +5,6 @@
 # Prerequisite of Background Running
 
 ```powershell
-# Open Powershell with Administrator Privilege, Excute The Command below and Input 'A'.
+# Open PowerShell with administrator privilege, execute the command below and input 'A'.
 Set-ExecutionPolicy Unrestricted
 ```
