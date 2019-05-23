@@ -58,6 +58,7 @@ openwrt_bootup() {
 }
 
 openwrt_cron() {
+    chmod +x /root/CloudDisk/*.sh
     /etc/init.d/cron enable
     /etc/init.d/cron start
     crontab -l > conf
