@@ -11,7 +11,7 @@ A script implementation of FamilyCloudSpeeder, ESurfing, runs properly on Window
 
 ## Get Started
 
-- Download the code
+- [Download the code](https://github.com/vcheckzen/FamilyCloudSpeederInShell/archive/master.zip)
 - Edit `config.json`
 - Execute `speedup.sh`
 - Enjoy high speed of your network
