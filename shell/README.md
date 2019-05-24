@@ -6,13 +6,9 @@
 # Requirements on OpenWRT, Padavan, Merlin and other platform with entware or optware environment
 opkg update && opkg install \
 coreutils-nohup libreadline libcurl libopenssl bash curl wget openssl-util ca-certificates ca-bundle
-
-# Test https and grep, a normal output is like "ip":"121.226.150.154"
-curl -s https://ipconfig.io/json | grep -Eo '"ip":"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"'
-wget -qO- https://ipconfig.io/json | grep -Eo '"ip":"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"'
 ```
 
-## Download the Code, Edit Config File Then, Excute
+## Download the Code, Edit Config File and Execute
 
 ```bash
 chmod +x *.sh && ./speedup.sh
