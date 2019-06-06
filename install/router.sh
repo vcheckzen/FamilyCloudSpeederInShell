@@ -69,6 +69,37 @@ openwrt_cron() {
     rm -f conf
 }
 
+uninstall() {
+    dirs[0]='/etc/storage/CloudDisk/'
+    dirs[1]='/jffs/scripts/CloudDisk/'
+    dirs[2]='/root/CloudDisk/'
+    dirs[3]='/etc/storage/script/*cloud*isk*'
+    dirs[4]='/jffs/scripts/*cloudisk*'
+    for dir in ${dirs[*]}
+    do
+        if [[ -f $dir || -d $dir ]]; then
+             rm -rf $dir
+        fi
+    done
+
+    crontab -l > conf
+    sed -i '/.*speedup_router.*/d' conf
+    crontab conf
+    rm -f conf
+
+    if [[ -f /etc/rc.local ]]; then
+        sed -i '/.*speedup.*/d' /etc/rc.local
+    fi
+
+    if [[ -f /jffs/scripts/wan-start ]]; then
+        sed -i '/.*cloudisk.*/d' /jffs/scripts/wan-start
+    fi
+
+    if [[ "`which mtd_storage.sh`" != "" ]]; then
+        mtd_storage.sh save
+    fi
+}
+
 case $1 in
     padavan_bootup)  padavan_bootup
     ;;
@@ -81,6 +112,8 @@ case $1 in
     openwrt_bootup)  openwrt_bootup
     ;;
     openwrt_cron)  openwrt_cron
+    ;;
+    uninstall) uninstall
     ;;
     *)  echo '仅支持 padavan, merlin 和类 openwrt 固件'
     ;;
