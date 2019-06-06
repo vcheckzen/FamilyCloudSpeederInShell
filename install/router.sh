@@ -77,7 +77,7 @@ uninstall() {
     dirs[4]='/jffs/scripts/*cloudisk*'
     for dir in ${dirs[*]}
     do
-        if [[ -f $dir || -d $dir ]]; then
+        if [[ -n "`ls $dir 2>/dev/null`" ]]; then
              rm -rf $dir
         fi
     done
